@@ -116,6 +116,12 @@ nmap <leader>a <Plug>(coc-codeaction-selected)
 
 let g:coc_filetype_map = {'tex' : 'latex'}
 
+" UTF-8 Compleation
+Plug 'chrisbra/unicode.vim'
+
+" Zeal integration <leader>z
+Plug 'KabbAmine/zeavim.vim'
+
 call plug#end()
 
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
