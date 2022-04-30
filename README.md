@@ -5,6 +5,7 @@ Personal Neovim setup and latex preambles
 
 ## Files structure
 
+```
 $HOME  
 ├── .config  
 │   ├── nvim  
@@ -24,3 +25,4 @@ $HOME
 │   ├── inkscape-figures  
 │   └── inkscape-shortcut-manager  
 │  
+```
