@@ -228,20 +228,25 @@
 \usepackage{xifthen}
 
 %====> Get current chapter name header <=============
-\newcommand{\currentMain}{}
-% \ifthenelse{\isundefined{\chapter}}{%
-    \let\oldchapter\section
-    \renewcommand{\section}[1]{\oldchapter{#1}\renewcommand{\currentMain}{#1}}
-% }{%
-%     \let\oldchapter\chapter
-%     \renewcommand{\chapter}[1]{\oldchapter{#1}\renewcommand{\currentMain}{#1}}
-% }
+% \newcommand{\currentMain}{}
+% % \ifthenelse{\isundefined{\chapter}}{%
+%     \let\oldchapter\section%
+%     \renewcommand{\section}[1]{%
+%         \@startsection {section}{1}{\z@}%
+%                        {-3.5ex \@plus -1ex \@minus -.2ex}%
+%                        {2.3ex \@plus.2ex}%
+%                        {\normalfont\Large\bfseries}%
+%         \renewcommand{\currentMain}{#1}}%
+% % }{%
+% %     \let\oldchapter\chapter
+% %     \renewcommand{\chapter}[1]{\oldchapter{#1}\renewcommand{\currentMain}{#1}}
+% % }
 
-\makeatletter
 %\def\testdateparts#1{\dateparts#1\relax}
 %\def\dateparts#1 #2 #3 #4 #5\relax{
 %    \marginpar{\small   #1 #2 #3 #5  }
 %}
+\makeatletter
 \def\@lecture{}%
 \newcommand{\lecture}[3]{
     \ifthenelse{\isempty{#3}}{%
@@ -282,7 +287,7 @@
 %
 \fancyfoot[RO,LE]{\thepage }  % Right odd,  Left even
 \fancyfoot[RE,LO]{}          % Right even, Left odd
-\fancyfoot[C]{\currentMain}     % Center
+\fancyfoot[C]{\sectionmark}     % Center
 %\cfoot{\thepage}
 \makeatother
 
