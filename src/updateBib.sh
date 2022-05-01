@@ -5,7 +5,8 @@
 #
 
 # nvim ~/.config/mytex/bib/Biblioteca.bib                                 
-cp ~/.config/mytex/bib/Biblioteca.bib $MFPATH/opt/myNvim-setup/mytex/bib
+cp ~/.config/mytex/bib/Biblioteca.bib $MFPATH/opt/myNvim-setup/config/mytex/bib
+cd $MFPATH/opt/myNvim-setup
 git add .                                                               
 git commit -m "Update: bib"                                             
 git push origin master  
