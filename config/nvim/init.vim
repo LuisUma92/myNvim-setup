@@ -2,8 +2,11 @@ filetype on
 filetype plugin on 
 filetype indent on
 
+set foldmethod=indent
+
 set spellfile=$HOME/.config/nvim/spell/es.utf-8.add
 set spelllang=es,en
+set spell
 
 "Map <leader> key to comma
 let mapleader = ','
@@ -16,26 +19,34 @@ set tabstop=4       " The width of a TAB is set to 4.
                     " Still it is a \t. It is just that
                     " Vim will interpret it to be having
                     " a width of 4.
-
 set shiftwidth=4    " Indents will have a width of 4
-
 set softtabstop=4   " Sets the number of columns for a TAB
-
 set expandtab       " Expand TABs to spaces
-
 set smarttab        " insert spaces or tabs to go to the next 
                     " indent of the next tabstop when the 
 		    " cursor is at the beginning of a line
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType tex setlocal ts=2 sts=2 sw=2 expandtab
+
+set hlsearch
+set incsearch
+
+set scrolloff=8
 
 call plug#begin()
 
 Plug 'lervag/vimtex'
 let g:tex_flavor='latex'
-"let g:vimtex_view_method='zathura'
+" let g:vimtex_view_method='zathura'
+let g:vimtex_view_general_viewer = 'evince'
 let g:vimtex_quickfix_mode=0
 let g:vimtex_compiler_latexmk_engines = {
             \'_'                    : '-xelatex',
             \}
+let g:tex_indent_items = 0
+let g:tex_indent_brace = 0
+let g:tex_indent_and = 0
 
 Plug 'KeitaNakamura/tex-conceal.vim'
     set conceallevel=1
@@ -44,7 +55,7 @@ Plug 'KeitaNakamura/tex-conceal.vim'
 
 " setlocal spell
 " set spelllang=es-MX
-" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Track the engine.
 Plug 'SirVer/ultisnips'
@@ -59,6 +70,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+set rtp+=~/Documents/00-40EM-Electromagnetismo/Maestría
 
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
@@ -109,21 +122,39 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() 
+            \: "\<C-g>u\<CR>"
 
 vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
 
 let g:coc_filetype_map = {'tex' : 'latex'}
 
-" UTF-8 Compleation
-Plug 'chrisbra/unicode.vim'
+Plug 'Yggdroot/indentLine'
+let g:indentLine_char =  '▏'
+let g:indentLine_setConceal = 0
+" let g:indentLine_setColor = 0
+" let g:indentLine_fgcolor_gui = '#bf616a'
+" let g:indentLine_fgcolor_term = '#bf616a'
+" let g:indentLine_color_term = '#bf616a'
+" let g:indentLine_color_gui = '#bf616a'
+" let g:indentLine_color_tty_light = '#bf616a'
+" let g:indentLine_color_dark = '#bf616a'
+" let g:indentLine_bgcolor_term = '#bf616a'
+" let g:indentLine_bgcolor_gui = '#bf616a'
 
-" Zeal integration <leader>z
-Plug 'KabbAmine/zeavim.vim'
+"local colors = {
+  "  "#3b4252", "#bf616a", "#a3be8c", "#ebcb8b", "#81a1c1", "#b48ead", "#88c0d0", "#e5e9f0", "#465780", "#d06f79", "#b1d196", "#f0d399", "#8cafd2", "#c895bf", "#93ccdc", "#e7ecf4",
+  "}
 
 call plug#end()
 
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+inoremap <C-p> <CR><Esc>: silent exec '.!nori insert "'.b:vimtex.root.'/res/"'<CR><CR>:w<CR>
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+xnoremap <C-p> "_dP
 

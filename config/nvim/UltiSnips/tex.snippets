@@ -33,7 +33,9 @@ snippet template "Basic template" b
 \usepackage{\AAfolder/sty/SetSymbols}
 % En el siguiente comando se indica cuál es el archivo que tiene las referencias
 \addbibresource{\AAfolder/bib/Biblioteca.bib}
-
+% \usepackage{\AAfolder/sty/HW-header}
+% \setbool{solutions}{true}
+% \graphicspath{{new/path}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %==<Inicia documento>================================
 \begin{document}
@@ -46,13 +48,16 @@ snippet template "Basic template" b
 	$0
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %==<Bibliografía>====================================
-%   Para la bibliografía se usa el gestor de referencias bibtex. Toda     la información de las referencias
-% se pone en un archivo aparte con la terminación .bib y se agrega aqu    í
+%		Para la bibliografía se usa el gestor de
+%	referencias bibtex. Toda la información de las
+%	referencias se pone en un archivo aparte con la
+%	terminación .bib y se agrega aquí
 %
 % \printbibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %==<Apéndice>========================================
-%   Se puede crear apéndices que luego se pueden referenciar con la et    iqueta
+%		Se puede crear apéndices que luego se pueden
+%	referenciar con la etiqueta
 % \appendix
 % \section{Figuras \label{app:fig}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,6 +106,24 @@ snippet enum "Enumerate" bA
 \end{enumerate}
 endsnippet
 
+snippet dl254 "dinglist{254}" bA
+\begin{dinglist}{254}
+	\item $0
+\end{dinglist}
+endsnippet
+
+snippet dl228 "dinglist{228}" bA
+\begin{dinglist}{228}
+	\item $0
+\end{dinglist}
+endsnippet
+
+snippet dl43 "dinglist{43}" bA
+\begin{dinglist}{43}
+	\item $0
+\end{dinglist}
+endsnippet
+
 snippet item "Itemize" bA
 \begin{itemize}
 	\item $0
@@ -131,8 +154,8 @@ snippet prime "fuking prima" iA
 endsnippet
 
 context "math()"
-snippet iff "iff" Ai
-\iff
+snippet ev "Expectation Value" Ai
+\ev{$0}
 endsnippet
 
 snippet nfr "newFrame" wA
@@ -154,6 +177,7 @@ snippet equa "eq environment" i
 	\label{eq:${VISUAL}}
 \end{equation}
 endsnippet
+
 snippet mmi "Math" wA
 \unit{${1:${VISUAL}}} \pause \\\\
 endsnippet
@@ -186,6 +210,30 @@ snippet ali "Align" bA
 .\end{align*}
 endsnippet
 
+context "math()"
+snippet volin "Volume integral" iA
+\int_{\mathcal{V}} $0 \dd V
+endsnippet
+
+context "math()"
+snippet sufin "Surfice integral" iA
+\int_{\mathcal{S}} $0 \dd A
+endsnippet
+
+context "math()"
+snippet ket "ket vector notation" iA
+\ket{$0}
+endsnippet
+
+context "math()"
+snippet vc "vector notation" iA
+\vc{$0}
+endsnippet
+
+context "math()"
+snippet vh "unitary vector notation" iA
+\vh{$0}
+endsnippet
 
 context "math()"
 snippet // "Fraction" iA
@@ -344,7 +392,7 @@ snippet prod "product" w
 endsnippet
 
 snippet part "d/dx" w
-\frac{\partial ${1:V}}{\partial ${2:x}} $0
+\pdv{${1:V}}{${2:x}} $0
 endsnippet
 
 context "math()"
@@ -393,8 +441,8 @@ snippet >= "geq" iA
 endsnippet
 
 context "math()"
-snippet EE "geq" iA
-\exists 
+snippet EE "E" iA
+\mathcal{E} 
 endsnippet
 
 context "math()"
@@ -557,18 +605,19 @@ snippet << "<<" iA
 \ll
 endsnippet
 
-
+context "math()"
 snippet ~~ "~" iA
 \sim 
 endsnippet
 
 context "math()"
-snippet set "set" wA
-\\{$1\\} $0
+snippet ~a "~~" iA
+\approx 
 endsnippet
 
-snippet || "mid" iA
- \mid 
+context "math()"
+snippet set "set" wA
+\\{$1\\} $0
 endsnippet
 
 
@@ -691,9 +740,24 @@ snippet letw "let omega" iA
 Let $\Omega \subset \C$ be open.
 endsnippet
 
+context "math()"
+snippet RR "R" iA
+\mathcal{R}
+endsnippet
 
+context "math()"
 snippet HH "H" iA
-\mathbb{H}
+\mathcal{H}
+endsnippet
+
+context "math()"
+snippet PP "P" iA
+\mathcal{P}
+endsnippet
+
+context "math()"
+snippet LL "L" iA
+\mathcal{L}
 endsnippet
 
 snippet DD "D" iA
