@@ -1,0 +1,64 @@
+\documentclass[11pt, %notitlepage, 
+twoside, %twocolumn,
+openany
+]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==<Definición de comandos propios>==================
+\newcommand{\AAfolder}{/home/luis/.config/mytex}
+\usepackage{\AAfolder/sty/SetFormat}
+\usepackage{\AAfolder/sty/ColorsLight}
+\usepackage{\AAfolder/sty/SetSymbols}
+% En el siguiente comando se indica cuál es el archivo que tiene las referencias
+% \addbibresource{\AAfolder/bib/Biblioteca.bib}
+% \usepackage{\AAfolder/sty/HW-header}
+\setbool{solutions}{true}
+% \setbool{solutions}{false}
+
+% \linespread{2}
+
+\newcommand{\pts}[1]{ {\it (#1 pts)}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==<Inicia documento>================================
+\begin{document}
+\begin{center}
+  {\LARGE Universidad de Costa Rica}\medskip \\
+    {\LARGE Escuela de Física} \medskip\\
+  {\LARGE Física General I (FS-0210)}\\
+% Grupo 12\\
+{\large Parcial de Profesor 2} \hfill {\large I Semestre de 2023}
+\end{center}
+% \pdfbookmark{Índice General}{section}{idxG}
+\ifthenelse{\boolean{solutions}}{
+\tableofcontents
+\newpage
+\begin{center}
+  \large {Grupo 2}
+\end{center}
+\addcontentsline{toc}{section}{Grupo 2}
+}{}
+\begin{enumerate}[1.]
+  \input{E001b.tex} %
+\ifthenelse{\boolean{solutions}}{\newpage}{}
+  \input{E002a.tex} %
+\ifthenelse{\boolean{solutions}}{\newpage}{}
+  \input{E003b.tex} %
+\end{enumerate}
+
+\ifthenelse{\boolean{solutions}}{
+\newpage
+\begin{center}
+  \large {Grupo 12}
+\end{center}
+\addcontentsline{toc}{section}{Grupo 4}
+}{}
+% \begin{enumerate}[1.]
+%   \input{E001a.tex} %
+% \ifthenelse{\boolean{solutions}}{\newpage}{}
+%   \input{E002b.tex} %
+% \ifthenelse{\boolean{solutions}}{\newpage}{}
+%   \input{E003b.tex} %
+% \end{enumerate}
+\newpage
+% \include{formulario}
+\includepdf{Parcial_prof_2.pdf}
+\end{document}

@@ -1,0 +1,477 @@
+\documentclass[
+  12pt,
+  %twocolumn
+]{article}
+
+\usepackage{graphicx}
+\graphicspath{{figuras/}}
+
+\usepackage{enumerate}
+
+\usepackage{ifpdf}
+
+\oddsidemargin=-0.25in
+\evensidemargin=0pt
+\textwidth=6.5in
+\topmargin=-0.25in
+\headheight=0pt
+\headsep=0pt
+\textheight=9.5in
+\parindent=0pt                         % sin sangria
+\parskip=9pt
+
+%\addtolength{\hoffset}{-0.125in}       % correccion para mi impresora
+
+\pagestyle{empty}
+
+\newcommand{\pts}[1]{ {\it (#1 pts)}}
+\newcommand{\cpts}[1]{ {\it (#1 pts/u)}}
+
+\newcommand{\ii}{\hat{\imath}}
+\newcommand{\jj}{\hat{\jmath}}
+\newcommand{\kk}{\hat{k}}
+\renewcommand{\sin}{\, \mathrm{sen}\,}
+\newcommand{\sen}{\, \mathrm{sen}}
+%\renewcommand{\lim}{\, \textrm{l\'im}\,}
+\newcommand{\negrita}[1]{\mbox{\boldmath $ #1 $}}
+\newcommand{\vect}[1]{\negrita{\vec{#1}}}
+\newcommand{\espacio}{\vskip 5ex}
+
+\newcommand{\pro}{promedio}
+\newcommand{\spro}[2]{#1_{#2 \textrm{\scriptsize prom}}}
+\newcommand{\sub}[2]{#1_{\textrm{\scriptsize #2}}}
+\newcommand{\MUR}{a velocidad cons\-tan\-te}
+\newcommand{\MUA}{con ace\-le\-ra\-ci\'on constante}
+\newcommand{\CMt}{CM}
+\newcommand{\CM}{\textrm{\tiny CM}}
+\newcommand{\tot}{\textrm{\tiny tot}}
+\newcommand{\obj}{\textrm{\tiny obj}}
+
+\usepackage{amsmath}
+\newcommand{\unit}[1]{\:\mathrm{#1}}
+\begin{document}
+
+\section{Trabajo y energía}
+En una barco se tiene un motor especial para subir el ancla de manera que 
+el ancla sube a velocidad constante. El ancla, de masa $m = 1250\:\mathrm{kg}$, está
+amarrada por una cuerda gruesa de una densidad de $\lambda = 2.33\:\mathrm{kg/m}$,
+que se encuentra de forma vertical y luego pasa por una polea de masa
+despreciable, para  luego ser arrollada por el motor. 
+El motor levanta el ancla que desde el fondo del mar hasta una altura de 
+$h = 56.0\:\mathrm{m}$, quedando solo $\ell = 2.00\:\mathrm{m}$ de la cuerda por fuera
+de la polea colgando.
+\begin{enumerate}[a)]
+  \item Plantee el diagrama de fuerzas para la cuerda colgando y las aplicación 
+    de las leyes de newton según corresponde \pts{9}.
+  \item Plantee la fuerza necesaria para subir con velocidad contante a 
+    la cuerda con el ancla en función del largo $y$ que de cuerda que 
+    queda colgando \pts{4}.
+  \item Calcule el trabajo realizado por el motor al subir el ancla a velocidad
+    constante \pts{12}.
+\end{enumerate}
+\begin{center}
+  \includegraphics[width = 0.4\textwidth]{barco.png}
+\end{center}
+  \paragraph{Solución:}
+\begin{enumerate}[a)]
+  \item  El diagrama de fuerzas tiene la fuerza del motor, el peso de la cuerda 
+    que cuelga y el peso del ancla.
+   \[
+     \sum F_y = F - \lambda y g - m g = 0
+   .\] 
+  \item A partir de las sumas de fuerzas.
+\[
+  F = g\left( m + \lambda y \right) 
+.\] 
+donde $y$ representa la cantidad de cuerda colgando.
+  \item Para calcular el trabajo realizado necesitamos los datos:
+  \[\begin{array}{l}
+    \lambda = 2.33\unit{kg/m} \\
+    m = 1250\unit{kg}
+    y_i = h = 56.0\unit{m}\\
+    y_f = \ell = 2.00\unit{m}\\
+  \end{array}\]
+  Note que es una fuerza variable que se integra desde que la cuerda está completamente
+  estirada hasta que se ha recogido la cantidad indicada
+  \[
+    W = \int_{y_i}^{y_f} F(+\jj) \cdot \;\mathrm{d}y(-\jj)
+  \] 
+  \[
+    W = -\int_h^{\ell} g\left( m + \lambda y \right) \;\mathrm{d}y
+  .\] 
+  \[
+    W = -g\left. \left( m y + \frac{\lambda y^2}{2} \right)  \right|_h^{\ell}
+  .\] 
+  \[
+    W = g\left( m (h - \ell ) + \frac{\lambda}{2}(h^2-\ell^2) \right) 
+  .\] 
+  \[
+    W = 9.81 \left(  1250(56.0-2.00) + \frac{2.33}{2}(56.0^2-2.00^2) \right) 
+    = 6.98\times 10^{6}\unit{J} 
+  .\] 
+
+  \paragraph{Distribución de puntos}
+  \renewcommand{\labelenumiii}{\theenumi\theenumii-\arabic{enumiii})}
+  \begin{enumerate}[a)]
+    \item .
+    \begin{enumerate}
+      \item Identifica la fuerza del motor y su dirección - \pts{2}.
+      \item Identifica el peso del ancla y su dirección - \pts{2}.
+      \item Identifica el peso de la cuerda en función del lago que cuelga y su dirección
+        - \pts{2}.
+      \item Plantea la suma de fuerzas de forma correcta - \pts{3}.
+    \end{enumerate}
+    \item .
+    \begin{enumerate}
+      \item Despeja correctamente la fuerza del motor - \pts{2}.
+      \item Indica correcta cuál una expresión lineal para la fuerza del motor - \pts{2}.
+    \end{enumerate}
+    \item .
+    \begin{enumerate}
+    \item Identifica que la fuerza va en dirección contraria de la dirección en
+      que cuelga la cuerda - \pts{2}.
+    \item Plantea el trabajo como la integral de la fuerza en función del desplazamiento
+      realizado por la cuerda que cuelga - \pts{2}.
+    \item Identifica que el trabajo es el resultado del producto punto entre la fuerza
+      y el desplazamiento - \pts{2}
+    \item Resuelve la integral de forma adecuada - \pts{4}.
+    \item Resultado numérico del trabajo con la unidad correspondiente - \pts{2}
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+\newpage
+\section{Trabajo y energía}
+En una montaña rusa que tiene un bucle, donde el carro, de masa $m = 2300\unit{kg}$,
+pasas por la parte interior del bucle con una rapidez de $v_1 = 9.91 \unit{m/s}$.
+Considere que el bucle se encuentra a una altura de $H = 25.0 \unit{m}$ sobre el suelo.
+
+\begin{enumerate}[a)]
+  \item Considerando que en punto más alto antes del bucle se encuentra a
+    $h_i=20.0\unit{m}$, calcule la rapidez que debe tener en este punto \pts{12.5}.
+  \item Si en el punto más bajo antes del bucle se tiene una rapidez de
+    $v_2 = 19.8\unit{m /s}$, calcule la altura de este punto \pts{12.5}.
+\end{enumerate}
+
+\begin{center}
+  \includegraphics[width = 0.7\textwidth]{MontanaRusa.png}
+\end{center}
+
+\paragraph{Solución:}
+\begin{enumerate}[a)]
+  \item .
+  Datos:
+  \[\begin{array}{l}
+    v_1 = 9.91\unit{m/s}\\
+    h_1 = H = 25.0 \unit{m}\\
+    v_3 = ? \\
+    h_3 = 20.0 \unit{m}
+  \end{array}\]
+\[
+ \Delta K + \Delta U = 0
+.\] 
+\[
+  \frac{mv_3^2}{2} - \frac{mv_1^2}{2} + mgh_3 - mgh_1 = 0
+.\] 
+\[
+  v_2 = \sqrt{v_1^2 + 2g\left( h_1 - h_2 \right) }
+  = \sqrt{9.91^2 + 2 \cdot 9.81 (25.0 - 20.0)} = 14.0\unit{m/s}
+.\] 
+  \item .
+  Datos:
+  \[\begin{array}{l}
+    v_1 = 9.91\unit{m/s}\\
+    h_1 = H = 25.0 \unit{m}\\
+    v_2 = 19.8\unit{m/s} \\
+    h_2 = ?
+  \end{array}\]
+\[
+ \Delta K + \Delta U = 0
+.\] 
+\[
+  \frac{mv_2^2}{2} - \frac{mv_1^2}{2} + mgh_2 - mgh_1 = 0
+.\] 
+\[
+  h_2 = h_1 + \frac{v_1^2 - v_2^2}{2g}
+  = 25.0 + \frac{9.91^2 - 19.8^2}{2\cdot 9.81} = 11.6\unit{m}
+.\] 
+
+  \paragraph{Distribución de puntos}
+  \renewcommand{\labelenumiv}{\theenumi\theenumiii-\arabic{enumiv})}
+  \begin{enumerate}[a)]
+      \item .
+    \begin{enumerate}
+      \item Identifica las variables importantes - \pts{3}.
+      \item Plantea la conservación de la energía - \pts{3}.
+      \item Desarrollo matemático adecuado - \pts{4.5}.
+      \item Resultado numérico final - \pts{2}.
+    \end{enumerate}
+      \item .
+    \begin{enumerate}
+      \item Identifica las variables importantes - \pts{3}.
+      \item Plantea la conservación de la energía - \pts{3}.
+      \item Desarrollo matemático adecuado - \pts{4.5}.
+      \item Resultado numérico final - \pts{2}.
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+\newpage
+\setcounter{section}{0}
+\section{Rotación Cuerpo Rígido}
+Se tiene una cuerda arrollada a un cilindro de masa
+$M = 10.0 \unit{kg}$ y radio $R = 25.0 \unit{cm}$.
+El cilindro tiene un mecanismo que le permite girar
+libremente sin fricción. Del extremo de la cuerda
+libre se cuelga una masa  $m = 5.00 \unit{kg}$.
+\begin{enumerate}[a)]
+  \item Dibuje un diagrama de fuerzas tanto para el
+    cilindro como para la masa colgante y la respectiva 
+    ley de Newton para cada caso \pts{8}.
+  \item Calcule la aceleración angular del cilindro \pts{7}.
+  \item Suponga que sustituye la masa colgante por una
+    fuerza del mismo valor, calcule la aceleración 
+    angular del cilindro en este nuevo escenario \pts{5}.
+  \item Calcule el momento de inercia del cilindro
+    respecto al eje transversal al punto del cual cuelga
+    la cuerda \pts{5}.
+\end{enumerate}
+\begin{center}
+  \includegraphics[width=0.6\textwidth]{Cilindro.png}
+\end{center}
+\paragraph{Solución:}
+\begin{enumerate}[a)]
+  \item Cada diagrama da pie a las siguientes sumas de fuerzas y momentos de torsión :
+    \[
+      R T = I \alpha
+    .\] 
+    \[
+      T - mg = -ma
+    .\] 
+  \item Datos:
+  \[\begin{array}{l}
+    M = 10.0 \unit{kg} \\
+    R = 0.250 \unit{m}\\
+    I = \frac{MR^2}{2} = 2.50 \unit{kg\: m^2} \\
+    m = 5.00 \unit{kg}
+  \end{array}\]
+Usando las sumas de fuerzas y de momento de torsión
+tenemos que
+\[
+  T = m\left( g - R\alpha \right) 
+.\] 
+\[
+  Rm(g - R\alpha) = \frac{MR^2}{2}\alpha
+.\] 
+\[
+  \alpha = \frac{2 mg}{R (M + 2m)}
+= \frac{2 \cdot 5.00 \cdot 9.82 }{0.250 (10.0 + 2\cdot 5.00)}
+= 19.6 \unit{rad/s}
+.\] 
+\item Datos:
+  \[\begin{array}{l}
+    M = 10.0 \unit{kg} \\
+    R = 0.250 \unit{m}\\
+    I = \frac{MR^2}{2} = 2.50 \unit{kg\: m^2} \\
+    F = mg = 5.00 \cdot 9.81 = 49.0 \unit{N}
+  \end{array}\]
+  En este caso la suma de la masa colgante cambia, debido
+  a que ya no hay masa:
+  \[
+    T- F = 0 \implies T = F
+  .\] 
+  \[
+    R F = \frac{MR^2}{2}\alpha
+  .\] 
+  \[
+    \alpha = \frac{2mg}{RM}
+    = \frac{2\cdot 5.00 \cdot 9.81}{0.250 \cdot 10.0}
+    = 39.2 \unit{rad /s}
+  .\] 
+  \item 
+Datos:
+\[\begin{array}{l}
+    M = 10.0 \unit{kg} \\
+    R = 0.250 \unit{m}\\
+    I = \frac{MR^2}{2} = 2.50 \unit{kg\: m^2} \\
+    d = R = 0.250\unit{m}
+\end{array}\]
+\[
+  I = I_{cm} + M d^2
+.\] 
+\[
+  I = \frac{MR^2}{2} + M R^2
+.\] 
+\[
+  I = \frac{3MR^2}{2}
+  = \frac{3\cdot 10.0  \cdot 0.250^2}{2}
+  = 0.937 \unit{kg\:m^2}
+.\] 
+  \paragraph{Distribución de puntos}
+  \renewcommand{\labelenumiv}{\theenumi\theenumiii-\arabic{enumiv})}
+  \begin{enumerate}[a)]
+      \item .
+    \begin{enumerate}
+    \item En el cilindro plantea la tensión de forma 
+      tangencial y el radio como brazo de palanca - \pts{2}.
+    \item En la masa colgante plantea el peso y la tensión
+      como opuestos en la vertical - \pts{2}.
+    \item Escribe de forma clara la suma de torsión para 
+      el cilindro, indicando que la aceleración angular 
+      comparte la dirección del momento de torsión - \pts{2}.
+    \item Escribe de forma clara la suma de fuerzas para 
+      la masa colgante, indicando que la aceleración
+      comparte la dirección del peso (ya sea positiva
+      o negativa según lo define el estudiante) - \pts{2}
+    \end{enumerate}
+      \item .
+    \begin{enumerate}
+      \item Identifica que la aceleración lineal de la
+        masa colgante se relaciona con la aceleración
+        angular del cilindro - \pts{1}.
+      \item Despeje matemático correcto - \pts{5}.
+      \item Resultado numérico correcto - \pts{1}.
+    \end{enumerate}
+      \item .
+    \begin{enumerate}
+      \item Reconoce que la suma de fuerzas asociada a la
+        masa colgante cambia, de forma que el cálculo
+        de la tensión cambia - \pts{2}.
+      \item Desarrollo matemático - \pts{2}.
+      \item Resultado numérico correcto - \pts{1}.
+    \end{enumerate}
+      \item .
+    \begin{enumerate}
+      \item Planteamiento del teorema de ejes paralelos
+        - \pts{1}.
+      \item Identifica que la distancia a correr el eje es
+        igual al radio del cilindro - \pts{1}.
+      \item Desarrollo matemático correcto - \pts{2}.
+      \item Resultado numérico correcto - \pts{1}.
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+\newpage
+\section{Rotación Cuerpo Rígido}
+Usted construye una rueda que consiste en una varilla delgada
+doblada formando un anillo de radio $R = 30.0\unit{cm}$ y
+masa $M = 45.0 \unit{g}$. Además le pone 5 varillas, cada
+de masa $m = 15.0 \unit{g}$, que se unen en el centro y
+cada una se une a un punto diferente en el anillo exterior.
+
+\begin{enumerate}[a)]
+  \item Calcule el momento de inercia de la rueda completa
+    \pts{7}.
+  \item Calcule el momento de inercia respecto a un eje 
+    transversal que pasa por el punto de contacto entre 
+    la rueda y el suelo \pts{7}.
+  \item Calcule la aceleración que experimenta la 
+    llanta si la pone a rodar cuesta abajo en una 
+    calle con una inclinación de $\theta = 10.0^{\circ}$ 
+    \pts{11}.
+\end{enumerate}
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{Rueda.png}
+\end{center}
+
+\paragraph{Solución:}
+\begin{enumerate}[a)]
+  \item El momento de inercia total es la suma del momento
+    de inercia de cada parte. 
+    Datos:
+  \[\begin{array}{l}
+    M = 0.450\unit{kg} \\
+    R = 0.300\unit{m}\\
+    m = 0.150\unit{kg} \\
+    \ell = R
+  \end{array}\]
+
+Momento de inercia del anillo
+\[
+  I_a = MR^2
+.\] 
+
+Momento de inercia de una varilla
+\[
+  I_v = \frac{mR^2}{3}
+.\] 
+Momento de inercia total
+\[
+  I = I_a + 5 I_v
+.\] 
+\[
+  I = MR^2 + 5 \frac{mR^2}{3}
+  = 0.300^2\left( 0.450 + \frac{5\cdot 0.150}{5} \right) 
+  = 6.30\times 10^{-2}\unit{kg\:m^2}
+.\] 
+  \item 
+  Datos
+  \[\begin{array}{l}
+    I_{cm} = 0.937 \unit{kg\:m^2}\\
+    d = R = 0.300\unit{m}\\
+    m_{tot} = M + 5m
+    = 0.450 + 5 \cdot 0.150
+    = 1.20 \unit{kg}
+  \end{array}\]
+  Aplicando teorema de ejes paralelos
+  \[
+    I = I_{cm} + m_{tot} d^2
+  .\] 
+  \[
+    I = MR^2 + \frac{5mR^2}{3} + MR^2 + mR^2
+  .\] 
+  \[
+    I = R^2\left( 2 M + \frac{8m}{3} \right) 
+    = 0.300^2 \left( 2 \cdot 0.450 + \frac{8\cdot 0.150}{3} \right) 
+    = 0.117 \unit{kg\:m^2}
+  .\] 
+  \item Aplicando la segunda ley de Newton para la rotación
+    al rededor del punto de contacto con la superficie:
+    \[
+      R m_{tot} g \sen(\theta) = I \alpha
+    .\] 
+    \[
+      \alpha = \frac{Rm_{tot}g}{I} \sen(\theta)
+      = \frac{0.300 \cdot 1.20 \cdot 9.81}{0.117} \sen(10^{\circ})
+      = 5.24 \unit{rad/s}
+    .\] 
+  \item .
+Datos:
+\[\begin{array}{l}
+  .
+\end{array}\]
+
+  \paragraph{Distribución de puntos}
+  \renewcommand{\labelenumiv}{\theenumi\theenumiii-\arabic{enumiv})}
+  \begin{enumerate}[a)]
+      \item .
+    \begin{enumerate}
+      \item Identifica correctamente el momento de inercia para el anillo - \pts{1}.
+      \item Identifica correctamente el momento de inercia para cada varilla - \pts{1}.
+      \item Reconoce que debe sumar los momentos de inercia, de manera que
+        se suma cinco veces el de la varilla - \pts{3}.
+      \item Resultado numérico correcto con la unidades apropiadas - \pts{2}
+    \end{enumerate}
+      \item .
+    \begin{enumerate}
+    \item Identifica que la distancia que debe moverse el momento de inercia es
+      el radio - \pts{1}.
+    \item Identifica que se usa la masa total de la rueda - \pts{1}.
+    \item Utiliza el teorema de ejes paralelos - \pts{1}.
+    \item Despeje matemático correcto - \pts{2}.
+    \item Resultado numérico correcto con unidades apropiadas - \pts{2}
+    \end{enumerate}
+      \item .
+    \begin{enumerate}
+      \item Calcula correctamente el momento de inercia del peso - \pts{4}.
+      \item Aplica la segunda ley de Newton para la rotación - \pts{2}.
+      \item Identifica que debe utilizar el momento de inercia respecto
+        al borde - \pts{1}.
+      \item Desarrollo matemático correcto - \pts{2}.
+      \item Resultado numérico correcto con las unidades correctas - \pts{2}.
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
