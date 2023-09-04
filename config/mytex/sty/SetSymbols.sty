@@ -17,7 +17,9 @@
 %\usepackage{ColorsFab}
 %\usepackage{ColorsDark}
 
-\newcommand{\pr}{\vc{\textcolor{Pos}{r}}}
+\newcommand{\pc}[1]{\textcolor{Pos}{#1}}
+
+\newcommand{\pr}[1][r]{\vc{\textcolor{Pos}{#1}}}
 \newcommand{\mpr}{|\vc{\textcolor{Pos}{r}}|}
 \newcommand{\px}{\textcolor{PosX}{\bm{x}}} %!45!yellow
 \newcommand{\py}{\textcolor{PosY}{y}}
@@ -27,10 +29,10 @@
 \newcommand{\vk}{\vh{\textcolor{PosZ}{k}}}
 \newcommand{\di}{\textcolor{Dis}{d}}
 \newcommand{\de}{\vc{\textcolor{Des}{d}}}
-\newcommand{\vv}{\vc{\textcolor{Vel}{v}}}
+\newcommand{\vv}[1][v]{\vc{\textcolor{Vel}{#1}}}
 \newcommand{\vvc}[1]{\vm{\textcolor{Vel}{v}}_{ #1 }}
-\newcommand{\ve}{\textcolor{Rap}{v}}
-\newcommand{\av}{\vc{\textcolor{Ace}{a}}}
+\newcommand{\ve}[1][v]{\textcolor{Rap}{#1}}
+\newcommand{\av}[1][a]{\vc{\textcolor{Ace}{#1}}}
 \newcommand{\avc}[1]{\vm{\textcolor{Ace}{a}}_{ #1 }}
 \newcommand{\mas}{\textcolor{Mas}{m}}
 \newcommand{\fz}{\vc{\textcolor{Fza}{F}}}
@@ -58,10 +60,10 @@
 
 %============================================================== Comands
 %%%% Script R %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\rcursub{{\mbox{$\;\resizebox{.05in}{.05in}{\includegraphics{\AAfolder/sty/img/ScriptR.png}}$}}}
-\def\brcursub{{\mbox{$\;\resizebox{.05in}{.05in}{\includegraphics{\AAfolder/sty/img/BoldR.png}}$}}}
-\def\rcurs{{\mbox{$\;\resizebox{.08in}{.08in}{\includegraphics{\AAfolder/sty/img/ScriptR.png}}$}}}
-\def\brcurs{{\mbox{$\;\resizebox{.08in}{.08in}{\includegraphics{\AAfolder/sty/img/BoldR.png}}$}}}
+\def\rcursub{{\mbox{$\;\resizebox{.05in}{.05in}{\includegraphics{\AAfolder/img/ScriptR.png}}$}}}
+\def\brcursub{{\mbox{$\;\resizebox{.05in}{.05in}{\includegraphics{\AAfolder/img/BoldR.png}}$}}}
+\def\rcurs{{\mbox{$\;\resizebox{.08in}{.08in}{\includegraphics{\AAfolder/img/ScriptR.png}}$}}}
+\def\brcurs{{\mbox{$\;\resizebox{.08in}{.08in}{\includegraphics{\AAfolder/img/BoldR.png}}$}}}
 \def\hrcurs{{\mbox{$\;\hat{\rcurs}$}}}
 %%%% vec notaion %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \newcommand{\rot}[1]{\nabla\times #1}
